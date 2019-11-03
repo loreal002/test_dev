@@ -23,19 +23,25 @@ def index(request):
         username = request.POST.get("username", '')
         password = request.POST.get("password", '')
 
-        # if username == '' or password == '':
-        #     return render(request, 'index.html', {"error": "用户名或密码不能为空"})
+        if username == '' or password == '':
+            return render(request, 'index.html', {"error": "用户名或密码不能为空"})
 
         user = auth.authenticate(username=username, password=password)
         if user is None:
             return render(request, 'index.html', {"error": "用户名或密码错误"})
         else:
             auth.login(request,user) #记录认证通过的用户
-            return HttpResponseRedirect("/manage/")
+            return HttpResponseRedirect("/project/")
 
 @login_required
-def manage(request):
-    return render(request,'manage.html')
+def project_manage(request):
+    return render(request, 'project.html')
+
+
+@login_required
+def module_manage(request):
+    return render(request, 'module.html')
+
 
 def logout(request):
     auth.logout(request)

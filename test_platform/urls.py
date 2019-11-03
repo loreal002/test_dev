@@ -21,10 +21,11 @@ urlpatterns = [
      path('hello/', views.say_hello),
      path('index/', views.index),
 # path('login_action/', views.login_action),
-    path('manage/', views.manage),
+    path('project/', views.project_manage),
    path('', views.index),
    path('accounts/login/', views.index),
-   path('manage/logout/', views.logout),
+   path('module/logout/', views.logout),
+    path('module/', views.module_manage),
 
 
 ]

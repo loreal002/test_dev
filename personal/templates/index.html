@@ -1,20 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<form action="/index/" method="POST">
- <p>username:
-     <input type="text" name="username"><br>
- </p>
-    <p>password:
-        <input type="password" name="password"><br></p>
-    <div style="color: red"> {{ error }} </div>
-    {% csrf_token %}
-  <p><input type="submit" value="Login"></p>
+{% extends "base.html" %}
+{% block base %}
 
+<body>
+{#<div style="height:700px;background-image: url(https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2638213642,3230933827&fm=26&gp=0.jpg)">#}
+<div class="container" style="width: 330px;" >
+
+<form class="form-signin" action="/index/" method="post">
+        <h2 class="form-signin-heading">接口测试平台</h2>
+        <label for="inputUsername" class="sr-only">账号</label>
+        <input type="text" id="inputUsername"  name="username" class="form-control" placeholder="Username" r>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword"  name="password" class="form-control" placeholder="Password" >
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+           <div style="color: red"> {{ error }} </div>
+         {% csrf_token %}
 </form>
-</body>
-</html>
+
+    </div> <!-- /container -->
+{#    </div>#}
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+{#    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>#}
+  </body>
+{#<form action="/index/" method="POST">#}
+{# <p>username:#}
+{#     <input type="text" name="username"><br>#}
+{# </p>#}
+{#    <p>password:#}
+{#        <input type="password" name="password"><br></p>#}
+{#    <div style="color: red"> {{ error }} </div>#}
+{#    {% csrf_token %}#}
+{#  <p><input type="submit" value="Login"></p>#}
+{##}
+{#</form>#}
+{#</body>#}
+{% endblock %}
